@@ -4,8 +4,7 @@
 
 <button
   type="button"
-  id="christmas-toggle"
-  class="relative flex items-center w-14 h-7 rounded-full
+  class="christmas-toggle relative flex items-center w-14 h-7 rounded-full
          bg-surface-200
          border border-surface-300
          transition-all duration-300 ease-[var(--ease-smooth)]
@@ -17,15 +16,13 @@
 >
   <!-- Sliding knob -->
   <span
-    id="toggle-knob"
-    class="absolute left-0.5 flex items-center justify-center w-6 h-6 rounded-full
+    class="toggle-knob absolute left-0.5 flex items-center justify-center w-6 h-6 rounded-full
            bg-white shadow-md
            transition-all duration-300 ease-[var(--ease-smooth)]"
   >
     <!-- Snowflake icon (shown when Christmas is OFF) -->
     <svg
-      id="snowflake-icon"
-      class="w-3.5 h-3.5 text-surface-400 transition-all duration-300"
+      class="snowflake-icon w-3.5 h-3.5 text-surface-400 transition-all duration-300"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="none"
@@ -44,8 +41,7 @@
 
     <!-- Christmas tree icon (shown when Christmas is ON) -->
     <svg
-      id="tree-icon"
-      class="w-3.5 h-3.5 text-red-600 transition-all duration-300 absolute hidden"
+      class="tree-icon w-3.5 h-3.5 text-red-600 transition-all duration-300 absolute hidden"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
@@ -56,31 +52,33 @@
 </button>
 
 <script>
-  const toggle = document.getElementById('christmas-toggle');
-  const toggleKnob = document.getElementById('toggle-knob');
-  const snowflakeIcon = document.getElementById('snowflake-icon');
-  const treeIcon = document.getElementById('tree-icon');
+  // Handle all toggle instances on the page
+  const toggles = document.querySelectorAll('.christmas-toggle');
 
-  function updateToggleUI(isChristmas: boolean) {
-    if (isChristmas) {
-      // Move knob to right, show tree icon, change track color
-      toggleKnob?.classList.remove('left-0.5');
-      toggleKnob?.classList.add('left-[calc(100%-1.625rem)]');
-      snowflakeIcon?.classList.add('hidden');
-      treeIcon?.classList.remove('hidden');
-      toggle?.classList.add('bg-red-500', 'border-red-400');
-      toggle?.classList.remove('bg-surface-200', 'border-surface-300');
-      toggle?.setAttribute('aria-checked', 'true');
-    } else {
-      // Move knob to left, show snowflake icon, default track color
-      toggleKnob?.classList.add('left-0.5');
-      toggleKnob?.classList.remove('left-[calc(100%-1.625rem)]');
-      snowflakeIcon?.classList.remove('hidden');
-      treeIcon?.classList.add('hidden');
-      toggle?.classList.remove('bg-red-500', 'border-red-400');
-      toggle?.classList.add('bg-surface-200', 'border-surface-300');
-      toggle?.setAttribute('aria-checked', 'false');
-    }
+  function updateAllTogglesUI(isChristmas: boolean) {
+    toggles.forEach((toggle) => {
+      const knob = toggle.querySelector('.toggle-knob');
+      const snowflake = toggle.querySelector('.snowflake-icon');
+      const tree = toggle.querySelector('.tree-icon');
+
+      if (isChristmas) {
+        knob?.classList.remove('left-0.5');
+        knob?.classList.add('left-[calc(100%-1.625rem)]');
+        snowflake?.classList.add('hidden');
+        tree?.classList.remove('hidden');
+        toggle.classList.add('bg-red-500', 'border-red-400');
+        toggle.classList.remove('bg-surface-200', 'border-surface-300');
+        toggle.setAttribute('aria-checked', 'true');
+      } else {
+        knob?.classList.add('left-0.5');
+        knob?.classList.remove('left-[calc(100%-1.625rem)]');
+        snowflake?.classList.remove('hidden');
+        tree?.classList.add('hidden');
+        toggle.classList.remove('bg-red-500', 'border-red-400');
+        toggle.classList.add('bg-surface-200', 'border-surface-300');
+        toggle.setAttribute('aria-checked', 'false');
+      }
+    });
   }
 
   function toggleChristmas() {
@@ -90,17 +88,20 @@
     if (isCurrentlyChristmas) {
       html.removeAttribute('data-theme');
       localStorage.setItem('theme', 'default');
-      updateToggleUI(false);
+      updateAllTogglesUI(false);
     } else {
       html.setAttribute('data-theme', 'christmas');
       localStorage.setItem('theme', 'christmas');
-      updateToggleUI(true);
+      updateAllTogglesUI(true);
     }
   }
 
-  // Initialize UI based on current theme
+  // Initialize all toggles based on current theme
   const isChristmas = document.documentElement.getAttribute('data-theme') === 'christmas';
-  updateToggleUI(isChristmas);
+  updateAllTogglesUI(isChristmas);
 
-  toggle?.addEventListener('click', toggleChristmas);
+  // Bind click handler to all toggles
+  toggles.forEach((toggle) => {
+    toggle.addEventListener('click', toggleChristmas);
+  });
 </script>
