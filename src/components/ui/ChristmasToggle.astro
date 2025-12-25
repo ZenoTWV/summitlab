@@ -1,0 +1,106 @@
+---
+// Christmas theme toggle component
+---
+
+<button
+  type="button"
+  id="christmas-toggle"
+  class="relative flex items-center w-14 h-7 rounded-full
+         bg-surface-200
+         border border-surface-300
+         transition-all duration-300 ease-[var(--ease-smooth)]
+         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+  aria-label="Toggle Christmas theme"
+  title="Toggle Christmas vibes"
+  role="switch"
+  aria-checked="false"
+>
+  <!-- Sliding knob -->
+  <span
+    id="toggle-knob"
+    class="absolute left-0.5 flex items-center justify-center w-6 h-6 rounded-full
+           bg-white shadow-md
+           transition-all duration-300 ease-[var(--ease-smooth)]"
+  >
+    <!-- Snowflake icon (shown when Christmas is OFF) -->
+    <svg
+      id="snowflake-icon"
+      class="w-3.5 h-3.5 text-surface-400 transition-all duration-300"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <line x1="2" x2="22" y1="12" y2="12"></line>
+      <line x1="12" x2="12" y1="2" y2="22"></line>
+      <path d="m20 16-4-4 4-4"></path>
+      <path d="m4 8 4 4-4 4"></path>
+      <path d="m16 4-4 4-4-4"></path>
+      <path d="m8 20 4-4 4 4"></path>
+    </svg>
+
+    <!-- Christmas tree icon (shown when Christmas is ON) -->
+    <svg
+      id="tree-icon"
+      class="w-3.5 h-3.5 text-red-600 transition-all duration-300 absolute hidden"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M12 2L4 14h4l-3 8h14l-3-8h4L12 2z"></path>
+    </svg>
+  </span>
+</button>
+
+<script>
+  const toggle = document.getElementById('christmas-toggle');
+  const toggleKnob = document.getElementById('toggle-knob');
+  const snowflakeIcon = document.getElementById('snowflake-icon');
+  const treeIcon = document.getElementById('tree-icon');
+
+  function updateToggleUI(isChristmas: boolean) {
+    if (isChristmas) {
+      // Move knob to right, show tree icon, change track color
+      toggleKnob?.classList.remove('left-0.5');
+      toggleKnob?.classList.add('left-[calc(100%-1.625rem)]');
+      snowflakeIcon?.classList.add('hidden');
+      treeIcon?.classList.remove('hidden');
+      toggle?.classList.add('bg-red-500', 'border-red-400');
+      toggle?.classList.remove('bg-surface-200', 'border-surface-300');
+      toggle?.setAttribute('aria-checked', 'true');
+    } else {
+      // Move knob to left, show snowflake icon, default track color
+      toggleKnob?.classList.add('left-0.5');
+      toggleKnob?.classList.remove('left-[calc(100%-1.625rem)]');
+      snowflakeIcon?.classList.remove('hidden');
+      treeIcon?.classList.add('hidden');
+      toggle?.classList.remove('bg-red-500', 'border-red-400');
+      toggle?.classList.add('bg-surface-200', 'border-surface-300');
+      toggle?.setAttribute('aria-checked', 'false');
+    }
+  }
+
+  function toggleChristmas() {
+    const html = document.documentElement;
+    const isCurrentlyChristmas = html.getAttribute('data-theme') === 'christmas';
+
+    if (isCurrentlyChristmas) {
+      html.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'default');
+      updateToggleUI(false);
+    } else {
+      html.setAttribute('data-theme', 'christmas');
+      localStorage.setItem('theme', 'christmas');
+      updateToggleUI(true);
+    }
+  }
+
+  // Initialize UI based on current theme
+  const isChristmas = document.documentElement.getAttribute('data-theme') === 'christmas';
+  updateToggleUI(isChristmas);
+
+  toggle?.addEventListener('click', toggleChristmas);
+</script>

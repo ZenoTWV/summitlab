@@ -1,0 +1,142 @@
+---
+import Logo from '../ui/Logo.astro';
+import Button from '../ui/Button.astro';
+import ChristmasToggle from '../ui/ChristmasToggle.astro';
+import { getI18n } from '../../i18n';
+
+const t = getI18n(Astro.currentLocale);
+
+const navItems = [
+  { href: '#projects', label: t('nav.projects') },
+  { href: '#services', label: t('nav.services') },
+  { href: '#about', label: t('nav.about') }
+];
+---
+
+<header
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  id="header"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div
+      class="mt-4 flex items-center justify-between rounded-[var(--radius-glass)] glass-heavy px-6 py-4"
+    >
+      <Logo size="md" />
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class="text-surface-600 hover:text-surface-900 font-medium transition-colors duration-300"
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <div class="hidden md:flex items-center gap-4">
+        <ChristmasToggle />
+        <Button href="#contact" variant="primary" size="sm">
+          {t('nav.contact')}
+        </Button>
+      </div>
+
+      <!-- Mobile: Toggle + Menu Button -->
+      <div class="flex md:hidden items-center gap-2">
+        <ChristmasToggle />
+        <button
+          type="button"
+          class="p-2 text-surface-600 hover:text-surface-900 transition-colors"
+          aria-label="Menu"
+          id="mobile-menu-button"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="4" x2="20" y1="12" y2="12"></line>
+            <line x1="4" x2="20" y1="6" y2="6"></line>
+            <line x1="4" x2="20" y1="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    class="md:hidden fixed inset-0 z-40 hidden"
+    id="mobile-menu"
+  >
+    <div class="absolute inset-0 bg-surface-900/20 backdrop-blur-sm" id="mobile-menu-overlay"></div>
+    <div
+      class="absolute right-4 top-24 w-64 rounded-[var(--radius-glass)] glass-heavy p-6 transform translate-x-full transition-transform duration-300"
+      id="mobile-menu-panel"
+    >
+      <nav class="flex flex-col gap-4">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class="text-surface-600 hover:text-surface-900 font-medium py-2 transition-colors duration-300 mobile-nav-link"
+            >
+              {item.label}
+            </a>
+          ))
+        }
+        <hr class="border-surface-200 my-2" />
+        <Button href="#contact" variant="primary" size="sm" class="mobile-nav-link">
+          {t('nav.contact')}
+        </Button>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuPanel = document.getElementById('mobile-menu-panel');
+  const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+  function openMenu() {
+    mobileMenu?.classList.remove('hidden');
+    requestAnimationFrame(() => {
+      mobileMenuPanel?.classList.remove('translate-x-full');
+      mobileMenuPanel?.classList.add('translate-x-0');
+    });
+  }
+
+  function closeMenu() {
+    mobileMenuPanel?.classList.remove('translate-x-0');
+    mobileMenuPanel?.classList.add('translate-x-full');
+    setTimeout(() => {
+      mobileMenu?.classList.add('hidden');
+    }, 300);
+  }
+
+  menuButton?.addEventListener('click', () => {
+    if (mobileMenu?.classList.contains('hidden')) {
+      openMenu();
+    } else {
+      closeMenu();
+    }
+  });
+
+  mobileMenuOverlay?.addEventListener('click', closeMenu);
+
+  mobileNavLinks.forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+</script>

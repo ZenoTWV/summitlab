@@ -1,0 +1,85 @@
+---
+interface Props {
+  animation?: 'fade-up' | 'fade-in' | 'slide-left' | 'slide-right' | 'scale';
+  delay?: number;
+  duration?: number;
+  threshold?: number;
+  class?: string;
+}
+
+const {
+  animation = 'fade-up',
+  delay = 0,
+  duration = 600,
+  threshold = 0.1,
+  class: className = ''
+} = Astro.props;
+---
+
+<div
+  class:list={['scroll-reveal', className]}
+  data-animation={animation}
+  data-delay={delay}
+  data-duration={duration}
+  data-threshold={threshold}
+>
+  <slot />
+</div>
+
+<script>
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -50px 0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const el = entry.target as HTMLElement;
+        const delay = parseInt(el.dataset.delay || '0');
+
+        setTimeout(() => {
+          el.classList.add('is-visible');
+        }, delay);
+
+        observer.unobserve(el);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.scroll-reveal').forEach((el) => {
+    observer.observe(el);
+  });
+</script>
+
+<style>
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-reveal[data-animation='fade-in'] {
+    transform: none;
+  }
+
+  .scroll-reveal[data-animation='slide-left'] {
+    transform: translateX(-50px);
+  }
+
+  .scroll-reveal[data-animation='slide-right'] {
+    transform: translateX(50px);
+  }
+
+  .scroll-reveal[data-animation='scale'] {
+    transform: scale(0.95);
+  }
+
+  .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+  }
+</style>

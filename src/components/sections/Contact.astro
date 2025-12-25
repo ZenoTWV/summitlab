@@ -1,0 +1,227 @@
+---
+import GlassPanel from '../ui/GlassPanel.astro';
+import Button from '../ui/Button.astro';
+import ScrollReveal from '../animations/ScrollReveal.astro';
+import { getI18n } from '../../i18n';
+
+const t = getI18n(Astro.currentLocale);
+
+const projectTypes = [
+  { value: 'website', label: t('contact.project_types.website') },
+  { value: 'website-hosting', label: t('contact.project_types.website_hosting') },
+  { value: 'automation', label: t('contact.project_types.automation') }
+];
+---
+
+<section id="contact" class="py-[var(--spacing-section)]">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <ScrollReveal animation="fade-up">
+      <div class="text-center mb-16">
+        <h2
+          class="text-[clamp(1.5rem,3vw+0.25rem,2.5rem)] font-[var(--font-family-heading)] font-bold text-surface-900 mb-4"
+        >
+          {t('contact.title')}
+        </h2>
+        <p class="text-lg text-surface-600 max-w-2xl mx-auto">
+          {t('contact.subtitle')}
+        </p>
+      </div>
+    </ScrollReveal>
+
+    <ScrollReveal animation="fade-up" delay={100}>
+      <div class="max-w-2xl mx-auto">
+        <GlassPanel class="p-8 md:p-10">
+          <form id="contact-form" class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label
+                  for="name"
+                  class="block text-sm font-medium text-surface-700 mb-2"
+                >
+                  {t('contact.name')} *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  class="w-full px-4 py-3 bg-white/50 rounded-[var(--radius-button)]
+                         border border-surface-200
+                         focus:border-primary-400 focus:ring-2 focus:ring-primary-100
+                         focus:outline-none
+                         transition-all duration-200
+                         placeholder:text-surface-400"
+                  placeholder={t('contact.name_placeholder')}
+                />
+              </div>
+
+              <div>
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-surface-700 mb-2"
+                >
+                  {t('contact.email')} *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full px-4 py-3 bg-white/50 rounded-[var(--radius-button)]
+                         border border-surface-200
+                         focus:border-primary-400 focus:ring-2 focus:ring-primary-100
+                         focus:outline-none
+                         transition-all duration-200
+                         placeholder:text-surface-400"
+                  placeholder={t('contact.email_placeholder')}
+                />
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label
+                  for="phone"
+                  class="block text-sm font-medium text-surface-700 mb-2"
+                >
+                  {t('contact.phone')} *
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  class="w-full px-4 py-3 bg-white/50 rounded-[var(--radius-button)]
+                         border border-surface-200
+                         focus:border-primary-400 focus:ring-2 focus:ring-primary-100
+                         focus:outline-none
+                         transition-all duration-200
+                         placeholder:text-surface-400"
+                  placeholder={t('contact.phone_placeholder')}
+                />
+              </div>
+
+              <div>
+                <label
+                  for="projectType"
+                  class="block text-sm font-medium text-surface-700 mb-2"
+                >
+                  {t('contact.project_type')} *
+                </label>
+                <select
+                  id="projectType"
+                  name="projectType"
+                  required
+                  class="w-full px-4 py-3 bg-white/50 rounded-[var(--radius-button)]
+                         border border-surface-200
+                         focus:border-primary-400 focus:ring-2 focus:ring-primary-100
+                         focus:outline-none
+                         transition-all duration-200
+                         text-surface-700"
+                >
+                  <option value="">{t('contact.project_type_placeholder')}</option>
+                  {projectTypes.map((type) => <option value={type.value}>{type.label}</option>)}
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label
+                for="message"
+                class="block text-sm font-medium text-surface-700 mb-2"
+              >
+                {t('contact.message')}
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                class="w-full px-4 py-3 bg-white/50 rounded-[var(--radius-button)]
+                       border border-surface-200
+                       focus:border-primary-400 focus:ring-2 focus:ring-primary-100
+                       focus:outline-none
+                       transition-all duration-200
+                       placeholder:text-surface-400 resize-none"
+                placeholder={t('contact.message_placeholder')}></textarea>
+            </div>
+
+            <Button type="submit" variant="primary" size="lg" class="w-full">
+              <span class="submit-text">{t('contact.submit')}</span>
+              <span class="submit-loading hidden">
+                <svg
+                  class="animate-spin h-5 w-5 inline mr-2"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <circle
+                    class="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    stroke-width="4"></circle>
+                  <path
+                    class="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
+                </svg>
+                {t('contact.submitting')}
+              </span>
+            </Button>
+
+            <!-- Feedback message -->
+            <div
+              id="form-feedback"
+              class="hidden mt-4 p-4 rounded-[var(--radius-button)] text-center"
+            >
+            </div>
+          </form>
+        </GlassPanel>
+      </div>
+    </ScrollReveal>
+  </div>
+</section>
+
+<script define:vars={{ successMsg: t('contact.success'), errorMsg: t('contact.error') }}>
+  const form = document.getElementById('contact-form');
+  const submitBtn = form?.querySelector('button[type="submit"]');
+  const submitText = submitBtn?.querySelector('.submit-text');
+  const submitLoading = submitBtn?.querySelector('.submit-loading');
+  const feedback = document.getElementById('form-feedback');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!submitBtn || !submitText || !submitLoading || !feedback) return;
+
+    // Show loading state
+    submitBtn.disabled = true;
+    submitText.classList.add('hidden');
+    submitLoading.classList.remove('hidden');
+    feedback.classList.add('hidden');
+
+    try {
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // For now, simulate form submission
+      // In production, this would POST to /api/contact
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // Success
+      feedback.classList.remove('hidden', 'bg-red-50', 'text-red-700');
+      feedback.classList.add('bg-primary-50', 'text-primary-700');
+      feedback.textContent = successMsg;
+      form.reset();
+    } catch {
+      feedback.classList.remove('hidden', 'bg-primary-50', 'text-primary-700');
+      feedback.classList.add('bg-red-50', 'text-red-700');
+      feedback.textContent = errorMsg;
+    } finally {
+      submitBtn.disabled = false;
+      submitText.classList.remove('hidden');
+      submitLoading.classList.add('hidden');
+    }
+  });
+</script>

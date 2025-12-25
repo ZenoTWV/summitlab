@@ -1,0 +1,25 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={`${title} - Summit Labs`} description={description}>
+  <Header />
+  <main class="pt-32 pb-16">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <article class="prose prose-surface max-w-none">
+        <h1 class="text-3xl font-bold text-surface-900 mb-8">{title}</h1>
+        <slot />
+      </article>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

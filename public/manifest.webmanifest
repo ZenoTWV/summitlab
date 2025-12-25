@@ -1,0 +1,17 @@
+{
+  "name": "Summit Labs",
+  "short_name": "Summit Labs",
+  "description": "Webdesign & AI Automatisering voor Nederlandse ondernemers",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFBFC",
+  "theme_color": "#14B8A6",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

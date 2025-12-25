@@ -1,0 +1,81 @@
+{
+  "site": {
+    "title": "Summit Labs - Webdesign & AI Automatisering",
+    "description": "Professionele websites en AI-automatisering voor Nederlandse ondernemers. Persoonlijke aanpak, snelle levering, en resultaten die werken."
+  },
+  "nav": {
+    "projects": "Projecten",
+    "services": "Diensten",
+    "about": "Over mij",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Webdesign & AI Automatisering",
+    "headline": "Websites die werken. Automatisering die tijd bespaart.",
+    "subheadline": "Ik help Nederlandse ondernemers met professionele websites en slimme AI-oplossingen. Persoonlijk, betaalbaar, en altijd bereikbaar.",
+    "cta_primary": "Start je project",
+    "cta_secondary": "Bekijk mijn werk"
+  },
+  "projects": {
+    "title": "Recent werk",
+    "subtitle": "Een selectie van projecten waar ik trots op ben",
+    "view_project": "Bekijk project"
+  },
+  "services": {
+    "title": "Diensten",
+    "subtitle": "Heldere prijzen, geen verrassingen",
+    "website": {
+      "title": "Website Design",
+      "price": "vanaf €350",
+      "note": "eenmalig",
+      "description": "Een professionele website van concept tot lancering. Modern design dat jouw bedrijf perfect presenteert."
+    },
+    "hosting": {
+      "title": "Website + Hosting",
+      "price": "€50",
+      "note": "per maand",
+      "description": "Jouw website volledig beheerd. Hosting, onderhoud, en alle updates zijn inbegrepen."
+    },
+    "automation": {
+      "title": "AI Automatisering",
+      "price": "vanaf €500",
+      "note": "maatwerk",
+      "description": "Sales funnels, lead capture, CRM integraties en dashboards. Bespaar uren per week."
+    }
+  },
+  "about": {
+    "title": "Over mij",
+    "greeting": "Hoi, ik ben Yannick",
+    "description": "Als freelance webdesigner en AI-specialist help ik ondernemers in Nederland met het bouwen van websites die niet alleen mooi zijn, maar ook resultaat opleveren. Ik combineer moderne AI-ondersteunde workflows met professionele ontwikkelmethoden om sneller te leveren zonder in te leveren op kwaliteit.",
+    "location": "Gevestigd in Nederland"
+  },
+  "contact": {
+    "title": "Laten we samenwerken",
+    "subtitle": "Heb je een project in gedachten? Ik hoor graag van je.",
+    "name": "Naam",
+    "name_placeholder": "Je naam",
+    "email": "E-mail",
+    "email_placeholder": "je@email.nl",
+    "phone": "Telefoon",
+    "phone_placeholder": "+31 6 12345678",
+    "project_type": "Type project",
+    "project_type_placeholder": "Kies een optie",
+    "project_types": {
+      "website": "Website Design",
+      "website_hosting": "Website Design + Hosting (retainer)",
+      "automation": "Automatisering (Sales/Leads/CRM/etc.)"
+    },
+    "message": "Bericht",
+    "message_placeholder": "Vertel me over je project... (optioneel)",
+    "submit": "Verstuur bericht",
+    "submitting": "Versturen...",
+    "success": "Bedankt voor je bericht! Ik neem zo snel mogelijk contact op.",
+    "error": "Er is iets misgegaan. Probeer het later opnieuw."
+  },
+  "footer": {
+    "copyright": "Summit Labs. Alle rechten voorbehouden.",
+    "privacy": "Privacybeleid",
+    "terms": "Algemene voorwaarden",
+    "cookies": "Cookiebeleid"
+  }
+}

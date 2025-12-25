@@ -1,0 +1,40 @@
+---
+interface Props {
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+}
+
+const { size = 'md', class: className = '' } = Astro.props;
+
+const sizeClasses = {
+  sm: 'text-lg',
+  md: 'text-xl',
+  lg: 'text-2xl'
+};
+
+const iconSizes = {
+  sm: 'w-5 h-5',
+  md: 'w-6 h-6',
+  lg: 'w-7 h-7'
+};
+---
+
+<a
+  href="/"
+  class:list={[
+    'inline-flex items-center gap-2',
+    'font-[var(--font-family-heading)] font-bold tracking-tight',
+    'text-surface-900',
+    'hover:text-primary-600',
+    'transition-colors duration-300',
+    sizeClasses[size],
+    className
+  ]}
+>
+  <img
+    src="/christmas-tree.png"
+    alt="Christmas tree"
+    class:list={['christmas-icon', iconSizes[size]]}
+  />
+  <span>Summit<span class="font-medium text-primary-500">Labs</span></span>
+</a>

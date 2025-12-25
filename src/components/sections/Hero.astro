@@ -1,0 +1,80 @@
+---
+import Button from '../ui/Button.astro';
+import ScrollReveal from '../animations/ScrollReveal.astro';
+import { getI18n } from '../../i18n';
+
+const t = getI18n(Astro.currentLocale);
+---
+
+<section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+  <!-- Background gradient orbs -->
+  <div class="absolute inset-0 -z-10 overflow-hidden">
+    <div
+      class="christmas-orb-1 absolute -top-40 -left-40 w-[500px] h-[500px] bg-primary-300/60 rounded-full blur-3xl animate-[pulse-glow_8s_ease-in-out_infinite]"
+    >
+    </div>
+    <div
+      class="christmas-orb-2 absolute top-1/3 -right-32 w-[400px] h-[400px] bg-primary-400/50 rounded-full blur-3xl animate-[pulse-glow_10s_ease-in-out_infinite_2s]"
+    >
+    </div>
+    <div
+      class="christmas-orb-3 absolute bottom-20 left-1/4 w-80 h-80 bg-primary-200/70 rounded-full blur-3xl animate-[pulse-glow_12s_ease-in-out_infinite_4s]"
+    >
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-32 lg:py-40">
+    <div class="max-w-3xl">
+      <ScrollReveal animation="fade-up" delay={0}>
+        <span
+          class="inline-block px-4 py-2 mb-6 text-sm font-semibold text-primary-700 bg-primary-50/80 backdrop-blur-sm border border-primary-200 rounded-full shadow-sm"
+        >
+          {t('hero.badge')}
+        </span>
+      </ScrollReveal>
+
+      <ScrollReveal animation="fade-up" delay={100}>
+        <h1
+          class="text-[clamp(2.5rem,5vw+1rem,4.5rem)] font-[var(--font-family-heading)] font-bold text-surface-900 mb-6 leading-[1.1]"
+        >
+          {t('hero.headline')}
+        </h1>
+      </ScrollReveal>
+
+      <ScrollReveal animation="fade-up" delay={200}>
+        <p class="text-xl text-surface-600 mb-8 max-w-2xl leading-relaxed">
+          {t('hero.subheadline')}
+        </p>
+      </ScrollReveal>
+
+      <ScrollReveal animation="fade-up" delay={300}>
+        <div class="flex flex-wrap gap-4">
+          <Button href="#contact" variant="primary" size="lg">
+            {t('hero.cta_primary')}
+          </Button>
+          <Button href="#projects" variant="secondary" size="lg">
+            {t('hero.cta_secondary')}
+          </Button>
+        </div>
+      </ScrollReveal>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div
+    class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden md:block"
+  >
+    <svg
+      class="w-6 h-6 text-surface-400"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
+</section>

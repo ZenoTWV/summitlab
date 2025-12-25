@@ -1,0 +1,36 @@
+---
+interface Props {
+  as?: 'div' | 'section' | 'article' | 'aside';
+  variant?: 'default' | 'heavy' | 'subtle';
+  hover?: boolean;
+  class?: string;
+}
+
+const {
+  as: Tag = 'div',
+  variant = 'default',
+  hover = false,
+  class: className = ''
+} = Astro.props;
+
+const variantClasses = {
+  default: 'glass',
+  heavy: 'glass-heavy',
+  subtle: 'glass-subtle'
+};
+
+const hoverClasses = hover
+  ? 'transition-all duration-300 ease-[var(--ease-smooth)] hover:shadow-[var(--shadow-glass-hover)] hover:-translate-y-1'
+  : '';
+---
+
+<Tag
+  class:list={[
+    'rounded-[var(--radius-glass)]',
+    variantClasses[variant],
+    hoverClasses,
+    className
+  ]}
+>
+  <slot />
+</Tag>

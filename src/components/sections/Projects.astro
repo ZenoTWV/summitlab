@@ -1,0 +1,102 @@
+---
+import { Image } from 'astro:assets';
+import GlassPanel from '../ui/GlassPanel.astro';
+import ScrollReveal from '../animations/ScrollReveal.astro';
+import { getI18n } from '../../i18n';
+
+import fitcityImage from '../../assets/fitcity.png';
+import byshakirImage from '../../assets/byshakir.jpg';
+
+const t = getI18n(Astro.currentLocale);
+
+const projects = [
+  {
+    title: 'FitCity',
+    description: 'Moderne website voor een sportschool',
+    category: 'Website',
+    url: 'https://fitcity.summitlab.dev',
+    image: fitcityImage,
+    alt: 'Screenshot van FitCity website'
+  },
+  {
+    title: 'ByShakir',
+    description: 'Luxe portfolio voor interieurontwerper',
+    category: 'Website',
+    url: 'https://byshakir.summitlab.dev',
+    image: byshakirImage,
+    alt: 'Screenshot van ByShakir website'
+  }
+];
+---
+
+<section id="projects" class="py-[var(--spacing-section)] bg-surface-100">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <ScrollReveal animation="fade-up">
+      <div class="text-center mb-16">
+        <h2
+          class="text-[clamp(1.5rem,3vw+0.25rem,2.5rem)] font-[var(--font-family-heading)] font-bold text-surface-900 mb-4"
+        >
+          {t('projects.title')}
+        </h2>
+        <p class="text-lg text-surface-600 max-w-2xl mx-auto">
+          {t('projects.subtitle')}
+        </p>
+      </div>
+    </ScrollReveal>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      {
+        projects.map((project, index) => (
+          <ScrollReveal animation="fade-up" delay={index * 100}>
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group block"
+            >
+              <GlassPanel hover class="overflow-hidden">
+                <div class="aspect-video relative overflow-hidden bg-surface-200">
+                  <Image
+                    src={project.image}
+                    alt={project.alt}
+                    class="w-full h-full object-cover object-top"
+                    widths={[400, 800, 1200]}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div class="absolute inset-0 bg-surface-900/0 group-hover:bg-surface-900/10 transition-colors duration-300" />
+                </div>
+                <div class="p-6">
+                  <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-xl font-semibold text-surface-900">
+                      {project.title}
+                    </h3>
+                    <span class="text-xs font-medium text-primary-600 bg-primary-50 px-2 py-1 rounded-full">
+                      {project.category}
+                    </span>
+                  </div>
+                  <p class="text-surface-600 mb-4">{project.description}</p>
+                  <span class="inline-flex items-center text-sm font-medium text-primary-600 group-hover:text-primary-700 transition-colors">
+                    {t('projects.view_project')}
+                    <svg
+                      class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </GlassPanel>
+            </a>
+          </ScrollReveal>
+        ))
+      }
+    </div>
+  </div>
+</section>
