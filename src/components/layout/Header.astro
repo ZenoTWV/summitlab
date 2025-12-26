@@ -2,6 +2,7 @@
 import Logo from '../ui/Logo.astro';
 import Button from '../ui/Button.astro';
 import ChristmasToggle from '../ui/ChristmasToggle.astro';
+import HeaderSnow from '../ui/HeaderSnow';
 import { getI18n } from '../../i18n';
 
 const t = getI18n(Astro.currentLocale);
@@ -19,12 +20,15 @@ const navItems = [
 >
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div
-      class="mt-4 flex items-center justify-between rounded-[var(--radius-glass)] glass-heavy px-6 py-4"
+      class="mt-4 flex items-center justify-between rounded-[var(--radius-glass)] glass-heavy px-6 py-4 relative overflow-hidden"
     >
-      <Logo size="md" />
+      <HeaderSnow client:load />
+      <div class="relative z-10">
+        <Logo size="md" />
+      </div>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-8">
+      <nav class="hidden md:flex items-center gap-8 relative z-10">
         {
           navItems.map((item) => (
             <a
@@ -37,7 +41,7 @@ const navItems = [
         }
       </nav>
 
-      <div class="hidden md:flex items-center gap-4">
+      <div class="hidden md:flex items-center gap-4 relative z-10">
         <ChristmasToggle />
         <Button href="#contact" variant="primary" size="sm">
           {t('nav.contact')}
@@ -45,7 +49,7 @@ const navItems = [
       </div>
 
       <!-- Mobile: Toggle + Menu Button -->
-      <div class="flex md:hidden items-center gap-2">
+      <div class="flex md:hidden items-center gap-2 relative z-10">
         <ChristmasToggle />
         <button
           type="button"
