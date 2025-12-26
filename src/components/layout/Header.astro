@@ -8,9 +8,9 @@ import { getI18n } from '../../i18n';
 const t = getI18n(Astro.currentLocale);
 
 const navItems = [
-  { href: '#projects', label: t('nav.projects') },
-  { href: '#services', label: t('nav.services') },
-  { href: '#about', label: t('nav.about') }
+  { href: '/#projects', label: t('nav.projects') },
+  { href: '/#services', label: t('nav.services') },
+  { href: '/#about', label: t('nav.about') }
 ];
 ---
 
@@ -43,7 +43,7 @@ const navItems = [
 
       <div class="hidden md:flex items-center gap-4 relative z-10">
         <ChristmasToggle />
-        <Button href="#contact" variant="primary" size="sm">
+        <Button href="/#contact" variant="primary" size="sm">
           {t('nav.contact')}
         </Button>
       </div>
@@ -99,7 +99,7 @@ const navItems = [
           ))
         }
         <hr class="border-surface-200 my-2" />
-        <Button href="#contact" variant="primary" size="sm" class="mobile-nav-link">
+        <Button href="/#contact" variant="primary" size="sm" class="mobile-nav-link">
           {t('nav.contact')}
         </Button>
       </nav>
