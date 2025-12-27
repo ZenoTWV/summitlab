@@ -3,7 +3,33 @@
     "allow": [
       "Bash(npm create:*)",
       "Bash(npm install:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "WebFetch(domain:reactbits.dev)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git merge:*)",
+      "Bash(gh issue create:*)",
+      "Bash(curl:*)",
+      "Bash(https://api.github.com/repos/ZenoTWV/summitlab/issues )",
+      "Bash(winget install:*)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" --version)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" auth status)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" issue create:*)",
+      "Bash(gh issue list:*)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" issue list --repo ZenoTWV/summitlab)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" issue view 1 --repo ZenoTWV/summitlab)",
+      "Bash(cd:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(tree:*)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" pr create --title \"Fix navigation anchors from legal pages\" --body \"$\\(cat <<''EOF''\n## Summary\nFixes navigation anchor links to properly redirect from legal pages to the home page.\n\n## Changes\n- Updated navigation items to use absolute anchor paths \\(`/#projects` instead of `#projects`\\)\n- Applied to all navigation items: Projects, Services, About, Contact\n- Works for both desktop and mobile navigation\n\n## Testing\n- [x] Tested navigation from home page - smooth scrolling works\n- [x] Tested navigation from /privacy, /terms, /cookies - redirects to home + scrolls\n- [x] Tested mobile navigation menu\n- [x] Verified build succeeds with no errors\n\n## Closes\nCloses #1\nEOF\n\\)\")",
+      "Bash(git branch:*)",
+      "Bash(cat:*)",
+      "Bash(npm run dev:*)",
+      "WebSearch",
+      "Bash(git pull:*)"
     ]
   }
 }

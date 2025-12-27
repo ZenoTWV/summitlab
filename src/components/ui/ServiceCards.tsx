@@ -11,7 +11,7 @@ interface Service {
     title: string;
     items: string[];
   };
-  advanced: {
+  advanced?: {
     title: string;
     items: string[];
   };
@@ -244,32 +244,34 @@ export default function ServiceCards({ services, buildOnThisText }: ServiceCards
                   </ul>
                 </div>
 
-                {/* Advanced Section */}
-                <div>
-                  <h4 className="text-sm font-semibold text-surface-700 mb-3 uppercase tracking-wide">
-                    {service.advanced.title}
-                  </h4>
-                  <ul className="space-y-2">
-                    {service.advanced.items.map((item, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-start gap-2 text-surface-600"
-                      >
-                        <svg
-                          className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth="2"
+                {/* Advanced Section - Optional */}
+                {service.advanced && (
+                  <div>
+                    <h4 className="text-sm font-semibold text-surface-700 mb-3 uppercase tracking-wide">
+                      {service.advanced.title}
+                    </h4>
+                    <ul className="space-y-2">
+                      {service.advanced.items.map((item, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-2 text-surface-600"
                         >
-                          <polyline points="9 11 12 14 22 4" />
-                          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-                        </svg>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                          <svg
+                            className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                          >
+                            <polyline points="9 11 12 14 22 4" />
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                          </svg>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 {/* Perfect For */}
                 <div className="pt-4 border-t border-surface-200">

@@ -91,12 +91,6 @@
           "Custom calculators & forms"
         ]
       },
-      "advanced": {
-        "title": "Real Example",
-        "items": [
-          "Gym membership system with automated SEPA payments via Mollie—no manual work, no storing sensitive data"
-        ]
-      },
       "perfectFor": "Businesses ready to automate repetitive tasks and scale"
     },
     "buildOnThis": "Build on this with"
