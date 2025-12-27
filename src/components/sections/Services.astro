@@ -1,24 +1,36 @@
 ---
-import GlassPanel from '../ui/GlassPanel.astro';
+import ServiceCards from '../ui/ServiceCards';
 import ScrollReveal from '../animations/ScrollReveal.astro';
 import { getI18n } from '../../i18n';
+import nl from '../../i18n/locales/nl.json';
+import en from '../../i18n/locales/en.json';
 
 const t = getI18n(Astro.currentLocale);
+const translations = Astro.currentLocale === 'en' ? en : nl;
 
-const services = [
-  {
-    key: 'website',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>`
-  },
-  {
-    key: 'hosting',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>`
-  },
-  {
-    key: 'automation',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>`
-  }
-];
+const serviceKeys = ['website', 'hosting', 'automation'] as const;
+const serviceIcons = {
+  website: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>`,
+  hosting: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>`,
+  automation: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>`
+};
+
+const services = serviceKeys.map((key) => {
+  const serviceData = translations.services[key];
+  return {
+    key,
+    icon: serviceIcons[key],
+    title: serviceData.title,
+    price: serviceData.price,
+    note: serviceData.note,
+    description: serviceData.description,
+    whatYouGet: serviceData.whatYouGet,
+    advanced: serviceData.advanced,
+    perfectFor: serviceData.perfectFor,
+  };
+});
+
+const buildOnThisText = translations.services.buildOnThis;
 ---
 
 <section id="services" class="py-[var(--spacing-section)]">
@@ -36,35 +48,6 @@ const services = [
       </div>
     </ScrollReveal>
 
-    <div class="grid md:grid-cols-3 gap-8">
-      {
-        services.map((service, index) => (
-          <ScrollReveal animation="fade-up" delay={index * 100}>
-            <GlassPanel hover class="p-8 h-full flex flex-col">
-              <div class="w-14 h-14 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600 mb-6">
-                <Fragment set:html={service.icon} />
-              </div>
-
-              <h3 class="text-xl font-semibold text-surface-900 mb-2">
-                {t(`services.${service.key}.title`)}
-              </h3>
-
-              <div class="flex items-baseline gap-2 mb-4">
-                <span class="text-2xl font-bold text-primary-600">
-                  {t(`services.${service.key}.price`)}
-                </span>
-                <span class="text-sm text-surface-500">
-                  {t(`services.${service.key}.note`)}
-                </span>
-              </div>
-
-              <p class="text-surface-600 flex-grow">
-                {t(`services.${service.key}.description`)}
-              </p>
-            </GlassPanel>
-          </ScrollReveal>
-        ))
-      }
-    </div>
+    <ServiceCards services={services} buildOnThisText={buildOnThisText} client:visible />
   </div>
 </section>

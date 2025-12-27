@@ -1,6 +1,7 @@
 import nl from './locales/nl.json';
+import en from './locales/en.json';
 
-const translations: Record<string, typeof nl> = { nl };
+const translations: Record<string, typeof nl> = { nl, en };
 
 type TranslationValue = string | Record<string, unknown>;
 

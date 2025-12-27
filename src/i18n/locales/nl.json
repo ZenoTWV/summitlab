@@ -28,20 +28,78 @@
       "title": "Website Design",
       "price": "vanaf €350",
       "note": "eenmalig",
-      "description": "Een professionele website van concept tot lancering. Modern design dat jouw bedrijf perfect presenteert."
+      "description": "Modern websites die er goed uitzien en daadwerkelijk werken. Van concept tot lancering.",
+      "whatYouGet": {
+        "title": "Wat je krijgt",
+        "items": [
+          "Responsive design (desktop, tablet, mobiel)",
+          "SEO basis (meta tags, sitemap)",
+          "Contactformulieren met e-mail automatisering",
+          "Snelle laadtijden op Cloudflare",
+          "Tot 5 pagina's"
+        ]
+      },
+      "advanced": {
+        "title": "Geavanceerde mogelijkheden",
+        "items": [
+          "Betalingsintegratie (Mollie/Stripe)",
+          "Vloeiende animaties (Framer Motion)",
+          "Multi-step formulieren & enquêtes",
+          "Inlog gebieden voor leden",
+          "Maatwerk calculators"
+        ]
+      },
+      "perfectFor": "Lokale bedrijven, sportscholen, kappers, restaurants die een professionele webpresentatie nodig hebben"
     },
     "hosting": {
-      "title": "Website + Hosting",
+      "title": "Hosting & Onderhoud",
       "price": "€50",
       "note": "per maand",
-      "description": "Jouw website volledig beheerd. Hosting, onderhoud, en alle updates zijn inbegrepen."
+      "description": "Jouw website volledig beheerd. Hosting, updates, en monitoring—allemaal geregeld.",
+      "whatYouGet": {
+        "title": "Wat inbegrepen is",
+        "items": [
+          "Snelle Cloudflare hosting",
+          "SSL certificaat & beveiliging",
+          "DNS & domein beheer",
+          "Maandelijkse content updates (1-2 uur)",
+          "Performance monitoring",
+          "Automatische back-ups"
+        ]
+      },
+      "advanced": {
+        "title": "Optioneel",
+        "items": [
+          "Custom dashboard hosting",
+          "E-mail forwarding setup"
+        ]
+      },
+      "perfectFor": "Ondernemers die hands-off website beheer willen"
     },
     "automation": {
-      "title": "AI Automatisering",
+      "title": "Automatisering & Tools",
       "price": "vanaf €500",
       "note": "maatwerk",
-      "description": "Sales funnels, lead capture, CRM integraties en dashboards. Bespaar uren per week."
-    }
+      "description": "Slimme automatisering die uren per week bespaart. Betalingsstromen, e-mail sequences, en custom tools.",
+      "whatYouGet": {
+        "title": "Wat ik bouw",
+        "items": [
+          "Betalingsautomatisering (lidmaatschap activatie, auto-incasso)",
+          "E-mail sequences (welkom, herinneringen, reviews)",
+          "Webhook integraties (Mollie, Stripe, APIs)",
+          "Eenvoudige dashboards & tracking",
+          "Custom calculators & formulieren"
+        ]
+      },
+      "advanced": {
+        "title": "Voorbeeld",
+        "items": [
+          "Sportschool lidmaatschapssysteem met geautomatiseerde SEPA betalingen via Mollie—geen handmatig werk, geen opslag van gevoelige data"
+        ]
+      },
+      "perfectFor": "Bedrijven klaar om repetitieve taken te automatiseren en te schalen"
+    },
+    "buildOnThis": "Bouw hierop verder met"
   },
   "about": {
     "title": "Over mij",

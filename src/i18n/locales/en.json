@@ -1,0 +1,139 @@
+{
+  "site": {
+    "title": "Summit Labs - Web Design & AI Automation",
+    "description": "Professional websites and AI automation for Dutch entrepreneurs. Personal approach, fast delivery, and results that work."
+  },
+  "nav": {
+    "projects": "Projects",
+    "services": "Services",
+    "about": "About me",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Web Design & AI Automation",
+    "headline": "Websites that work. Automation that saves time.",
+    "subheadline": "I help Dutch entrepreneurs with professional websites and smart AI solutions. Personal, affordable, and always available.",
+    "cta_primary": "Start your project",
+    "cta_secondary": "View my work"
+  },
+  "projects": {
+    "title": "Recent work",
+    "subtitle": "A selection of projects I'm proud of",
+    "view_project": "View project"
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Clear pricing, no surprises",
+    "website": {
+      "title": "Website Design",
+      "price": "from €350",
+      "note": "one-time",
+      "description": "Modern websites that look great and actually work. From concept to launch.",
+      "whatYouGet": {
+        "title": "What You Get",
+        "items": [
+          "Responsive design (desktop, tablet, mobile)",
+          "SEO foundation (meta tags, sitemap)",
+          "Contact forms with email automation",
+          "Fast page loads on Cloudflare",
+          "Up to 5 pages"
+        ]
+      },
+      "advanced": {
+        "title": "Advanced Capabilities",
+        "items": [
+          "Payment integration (Mollie/Stripe)",
+          "Smooth animations (Framer Motion)",
+          "Multi-step forms & surveys",
+          "Member login areas",
+          "Custom calculators"
+        ]
+      },
+      "perfectFor": "Local businesses, gyms, salons, restaurants who need a professional web presence"
+    },
+    "hosting": {
+      "title": "Hosting & Care",
+      "price": "€50",
+      "note": "per month",
+      "description": "Your website fully managed. Hosting, updates, and monitoring—all handled.",
+      "whatYouGet": {
+        "title": "What's Included",
+        "items": [
+          "Fast Cloudflare hosting",
+          "SSL certificate & security",
+          "DNS & domain management",
+          "Monthly content updates (1-2 hours)",
+          "Performance monitoring",
+          "Automated backups"
+        ]
+      },
+      "advanced": {
+        "title": "Add-ons",
+        "items": [
+          "Custom dashboard hosting",
+          "Email forwarding setup"
+        ]
+      },
+      "perfectFor": "Business owners who want hands-off website management"
+    },
+    "automation": {
+      "title": "Automation & Tools",
+      "price": "from €500",
+      "note": "custom",
+      "description": "Smart automation that saves hours per week. Payment flows, email sequences, and custom tools.",
+      "whatYouGet": {
+        "title": "What I Build",
+        "items": [
+          "Payment automation (membership activation, auto-billing)",
+          "Email sequences (welcome, reminders, reviews)",
+          "Webhook integrations (Mollie, Stripe, APIs)",
+          "Simple dashboards & tracking",
+          "Custom calculators & forms"
+        ]
+      },
+      "advanced": {
+        "title": "Real Example",
+        "items": [
+          "Gym membership system with automated SEPA payments via Mollie—no manual work, no storing sensitive data"
+        ]
+      },
+      "perfectFor": "Businesses ready to automate repetitive tasks and scale"
+    },
+    "buildOnThis": "Build on this with"
+  },
+  "about": {
+    "title": "About me",
+    "greeting": "Hi, I'm Yannick",
+    "description": "As a freelance web designer and AI specialist, I help entrepreneurs in the Netherlands build websites that are not only beautiful, but also deliver results. I combine modern AI-powered workflows with professional development methods to deliver faster without compromising on quality.",
+    "location": "Based in the Netherlands"
+  },
+  "contact": {
+    "title": "Let's work together",
+    "subtitle": "Have a project in mind? I'd love to hear from you.",
+    "name": "Name",
+    "name_placeholder": "Your name",
+    "email": "Email",
+    "email_placeholder": "you@email.com",
+    "phone": "Phone",
+    "phone_placeholder": "+31 6 12345678",
+    "project_type": "Project type",
+    "project_type_placeholder": "Choose an option",
+    "project_types": {
+      "website": "Website Design",
+      "website_hosting": "Website Design + Hosting (retainer)",
+      "automation": "Automation (Sales/Leads/CRM/etc.)"
+    },
+    "message": "Message",
+    "message_placeholder": "Tell me about your project... (optional)",
+    "submit": "Send message",
+    "submitting": "Sending...",
+    "success": "Thanks for your message! I'll get back to you as soon as possible.",
+    "error": "Something went wrong. Please try again later."
+  },
+  "footer": {
+    "copyright": "Summit Labs. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Policy"
+  }
+}
