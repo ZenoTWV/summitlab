@@ -40,7 +40,9 @@
       "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" repo edit SummitLabDev/summitlab -d \"Professional portfolio website for Summit Labs - Web design & automation studio | Astro 5 + Tailwind CSS v4 + TypeScript\" -h \"https://summitlab.dev\" --add-topic \"astro\" --add-topic \"tailwind-css\" --add-topic \"portfolio\" --add-topic \"web-design\" --add-topic \"typescript\")",
       "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" repo edit SummitLabDev/fitcity -d \"Modern gym website for FitCity Culemborg | React + Vite + Tailwind CSS + Framer Motion\" -h \"https://fitcity.summitlab.dev\" --add-topic \"react\" --add-topic \"vite\" --add-topic \"tailwind-css\" --add-topic \"framer-motion\" --add-topic \"fitness\")",
       "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" repo edit SummitLabDev/byshakir -d \"Premium portfolio for By Shakir Luxury Interiors | Astro 5 + Tailwind CSS + TypeScript\" -h \"https://byshakir.summitlab.dev\" --add-topic \"astro\" --add-topic \"tailwind-css\" --add-topic \"portfolio\" --add-topic \"interior-design\" --add-topic \"typescript\")",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(gh:*)",
+      "Bash(echo:*)"
     ]
   }
 }

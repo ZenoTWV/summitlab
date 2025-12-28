@@ -78,7 +78,7 @@ Tag new version. Current state is now v[X.X.X].
 
 **Prompt (Haiku):**
 ```
-Create GitHub issue: [description]
+Read @SOP-OVERVIEW.md - Create GitHub issue and assign it to me: [description]
 ```
 
 ---
