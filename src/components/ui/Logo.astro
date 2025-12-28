@@ -6,13 +6,13 @@ interface Props {
 
 const { size = 'md', class: className = '' } = Astro.props;
 
-const sizeClasses = {
-  sm: 'text-lg',
-  md: 'text-xl',
-  lg: 'text-2xl'
+const logoHeights = {
+  sm: 'h-3 md:h-6',
+  md: 'h-4 md:h-8',
+  lg: 'h-5 md:h-9'
 };
 
-const iconSizes = {
+const treeSizes = {
   sm: 'w-5 h-5',
   md: 'w-6 h-6',
   lg: 'w-7 h-7'
@@ -23,18 +23,37 @@ const iconSizes = {
   href="/"
   class:list={[
     'inline-flex items-center gap-2',
-    'font-[var(--font-family-heading)] font-bold tracking-tight',
     'text-surface-900',
-    'hover:text-primary-600',
+    'hover:opacity-90',
     'transition-colors duration-300',
-    sizeClasses[size],
+    'translate-y-[1px] md:translate-y-[2px]',
+    'leading-none',
     className
   ]}
 >
   <img
     src="/christmas-tree.png"
     alt="Christmas tree"
-    class:list={['christmas-icon', iconSizes[size]]}
+    class:list={['christmas-icon', treeSizes[size]]}
   />
-  <span>Summit<span class="font-medium text-primary-500">Labs</span></span>
+  <img
+    src="/brand/logo-mobile.png"
+    alt="Summit Labs logo"
+    class:list={[
+      'w-auto object-contain',
+      logoHeights[size],
+      'block md:hidden'
+    ]}
+    loading="lazy"
+  />
+  <img
+    src="/brand/logo-wordmark.png"
+    alt="Summit Labs logo"
+    class:list={[
+      'w-auto object-contain',
+      logoHeights[size],
+      'hidden md:block'
+    ]}
+    loading="lazy"
+  />
 </a>

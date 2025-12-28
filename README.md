@@ -73,7 +73,7 @@ npm run preview
 
 **Code:** MIT License - Feel free to use the code for your own projects
 
-**Branding & Content:** © 2024 Summit Labs. All rights reserved.
+**Branding & Content:** © 2026 Summit Labs. All rights reserved.
 
 ---
 

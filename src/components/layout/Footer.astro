@@ -1,5 +1,7 @@
 ---
 import SocialLinks from '../ui/SocialLinks.astro';
+import Logo from '../ui/Logo.astro';
+import FooterLogo from '../ui/FooterLogo.astro';
 import { getI18n } from '../../i18n';
 
 const t = getI18n(Astro.currentLocale);
@@ -18,12 +20,7 @@ const legalLinks = [
     <div class="flex flex-col md:flex-row items-center justify-between gap-6">
       <!-- Logo & Social -->
       <div class="flex flex-col items-center md:items-start gap-4">
-        <a
-          href="/"
-          class="font-[var(--font-family-heading)] font-bold text-xl text-surface-900 hover:text-primary-600 transition-colors duration-300"
-        >
-          Summit<span class="font-medium text-primary-500">Labs</span>
-        </a>
+        <Logo size="sm" />
         <SocialLinks />
       </div>
 
@@ -42,11 +39,12 @@ const legalLinks = [
       </nav>
     </div>
 
-    <!-- Copyright -->
-    <div class="mt-8 pt-8 border-t border-surface-200 text-center">
+    <!-- Copyright & Made by Summit Labs -->
+    <div class="mt-8 pt-8 border-t border-surface-200 flex flex-col md:flex-row items-center justify-between gap-4">
       <p class="text-sm text-surface-500">
         &copy; {currentYear} {t('footer.copyright')}
       </p>
+      <FooterLogo />
     </div>
   </div>
 </footer>
