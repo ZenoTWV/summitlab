@@ -42,7 +42,9 @@
       "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" repo edit SummitLabDev/byshakir -d \"Premium portfolio for By Shakir Luxury Interiors | Astro 5 + Tailwind CSS + TypeScript\" -h \"https://byshakir.summitlab.dev\" --add-topic \"astro\" --add-topic \"tailwind-css\" --add-topic \"portfolio\" --add-topic \"interior-design\" --add-topic \"typescript\")",
       "Bash(ls:*)",
       "Bash(gh:*)",
-      "Bash(echo:*)"
+      "Bash(echo:*)",
+      "Bash(npm run:*)",
+      "Bash(git rev-parse:*)"
     ]
   }
 }
