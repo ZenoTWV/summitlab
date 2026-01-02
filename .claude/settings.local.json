@@ -44,7 +44,9 @@
       "Bash(gh:*)",
       "Bash(echo:*)",
       "Bash(npm run:*)",
-      "Bash(git rev-parse:*)"
+      "Bash(git rev-parse:*)",
+      "Bash(git remote:*)",
+      "Bash(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\" issue view 8 --json title --jq .title)"
     ]
   }
 }
